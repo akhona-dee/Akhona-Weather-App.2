@@ -37,7 +37,8 @@ function displayWeatherCondition(response) {
     response.data.weather[0].main;
 }
 
-function searchCity(city) {
+
+function search(city) {
   let apiKey = "cabdbda40038ba7d1165b953b1c7bd6c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeatherCondition);
@@ -46,7 +47,7 @@ function searchCity(city) {
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input").value;
-  searchCity(city);
+  search(city);
 }
 
 function searchLocation(position) {
@@ -83,4 +84,4 @@ searchForm.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-searchCity("Cape Town");
+search("Cape Town");
